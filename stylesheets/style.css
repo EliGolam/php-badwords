@@ -20,15 +20,11 @@ body {
   background: var(--clr-neutral-dark);
   color: var(--clr-neutral);
   font-family: 'IBM Plex Mono', monospace, sans-serif;
+  text-align: center;
 }
 
 .container {
   margin: 0 auto;
   padding: 2rem;
   max-width: 75ch;
-}
-
-.result,
-.title {
-  text-align: center;
 }
