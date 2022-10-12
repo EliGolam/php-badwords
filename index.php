@@ -1,15 +1,31 @@
 <?php
   $testString = 'This is a practice string';
 
+  // Parameter -> message
   $messageParameter = $_GET["message"];
 
+  // Censored String -> censor
   $textToCensor = 'An Athenian daughter all down on her luck';
 
-  $censorParameter = $_GET["censor"];
+  $censorParameter = $_GET["censor"]; 
 
   $CENSOR = '***';
 
   $censoredText = str_replace($censorParameter, $CENSOR, $textToCensor);
+
+  // Censor Array -> censorArr
+  $arrayOfText = [
+    "Peter Piper picked a peck of pickled peppers",
+    "A peck of pickled peppers Peter Piper picked",
+    "If Peter Piper picked a peck of pickled peppers",
+    "Where’s the peck of pickled peppers Peter Piper picked?"
+  ];
+
+  $censorArr = $_GET["censorArr"];
+
+  foreach ($arrayOfText as &$line) {
+    $line = str_replace($censorArr, $CENSOR, $line);
+  };
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -65,21 +81,36 @@
     <p class="subtitle">by Elias Mahfuzul</p>
   </header>
 
-  <section>
-    <h2>Practice String</h2>
-    <p><?= $testString ?></p>
-  </section>
+  <main class="flow">
+    <section>
+      <h2>Practice String</h2>
+      <p><?= $testString ?></p>
+    </section>
 
-  <section>
-    <h2>Practice Parameter</h2>
-    <p>The parameter passed is: <?php echo htmlspecialchars($messageParameter) ?></p>
-  </section>
+    <section>
+      <h2>Practice Parameter</h2>
+      <p>The parameter passed is: <?php echo htmlspecialchars($messageParameter) ?></p>
+    </section>
 
-  <section>
-    <h2>Censor Words</h2>
-    <p>Shakespeare's Midsummer Night's Dream</p>
-    <p>Original Text: <cite><?= $textToCensor ?></cite></p>
-    <p>Censored Text: <strong><?= $censoredText ?></strong></p>
-  </section>
+    <section>
+      <h2>Censor Words</h2>
+      <p>Shakespeare's Midsummer Night's Dream</p>
+      <p>Original Text: <cite><?= $textToCensor ?></cite></p>
+      <p>Censored Text: <strong><?= $censoredText ?></strong></p>
+    </section>
+
+    <section>
+      <h2>Censor Multiple Lines</h2>
+      <p>Horrible tongue twister</p>
+      <p><strong>Censored Array</strong></p>
+      <?php 
+        foreach ($arrayOfText as &$line) {
+          echo "<p>";
+          echo $line;
+          echo "</p>";
+        }
+      ?>
+    </section>
+  </main>
 </body>
 </html>

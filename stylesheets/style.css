@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200;300;400;600&display=swap');
 
 :root {
-  --clr-neutral-dark: hsl(207, 19%, 5%);
+  --clr-neutral-dark: hsl(229, 21%, 15%);
   --clr-neutral: hsl(0, 0%, 100%);
-  --clr-accent: hsl(142, 90%, 61%);
+  --clr-accent: hsl(72, 62%, 63%);
+  --clr-accent-2: hsl(357, 81%, 69%);
+  --clr-accent-3: hsl(256, 54%, 72%);
 }
 
 *,
@@ -23,8 +25,25 @@ body {
   text-align: center;
 }
 
+.flow > * + * {
+  margin-top: 3em;
+}
+
 .container {
   margin: 0 auto;
   padding: 2rem;
   max-width: 75ch;
+}
+
+h2 {
+  color: var(--clr-accent-3);
+}
+
+cite,
+em {
+  color: var(--clr-accent-2);
+}
+
+strong {
+  color: var(--clr-accent);
 }
