@@ -6,6 +6,7 @@
   --clr-accent: hsl(72, 62%, 63%);
   --clr-accent-2: hsl(357, 81%, 69%);
   --clr-accent-3: hsl(256, 54%, 72%);
+  --clr-subtle: hsl(221, 100%, 75%);
 }
 
 *,
@@ -33,6 +34,10 @@ body {
   margin: 0 auto;
   padding: 2rem;
   max-width: 75ch;
+}
+
+.subtitle {
+  color: var(--clr-subtle);
 }
 
 h2 {
