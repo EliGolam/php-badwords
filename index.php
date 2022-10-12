@@ -3,11 +3,19 @@
 
   $messageParameter = $_GET["message"];
 
+  $textToCensor = 'An Athenian daughter all down on her luck';
+
+  $censorParameter = $_GET["censor"];
+
+  $CENSOR = '***';
+
+  $censoredText = str_replace($censorParameter, $CENSOR, $textToCensor);
+
 ?><!DOCTYPE html>
 <html lang="en">
 <!-- METADATA -->
 <head>
-  <title>API Practice</title>
+  <title>PHP Practice</title>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <meta charset="UTF-8">
@@ -65,6 +73,13 @@
   <section>
     <h2>Practice Parameter</h2>
     <p>The parameter passed is: <?php echo htmlspecialchars($messageParameter) ?></p>
+  </section>
+
+  <section>
+    <h2>Censor Words</h2>
+    <p>Shakespeare's Midsummer Night's Dream</p>
+    <p>Original Text: <cite><?= $textToCensor ?></cite></p>
+    <p>Censored Text: <strong><?= $censoredText ?></strong></p>
   </section>
 </body>
 </html>
